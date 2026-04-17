@@ -12,9 +12,9 @@
     // as scrolll goes from 0 to 1 opacity goes from 
     const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
     // as scrolll goes from 0 to 1 text moves from 0 to -200 xp
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -300]);
-    const y1_1 = useTransform(scrollYProgress, [0, 1], [0, -500]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, -125]);
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -350]);
+    const y1_1 = useTransform(scrollYProgress, [0, 1], [0, -310]);
+    const y2 = useTransform(scrollYProgress, [0, 1], [0, -225]);
     const y3 = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
 </script>
@@ -34,16 +34,19 @@
 
 
         <div class="relative mt-[clamp(5rem,10vw,18rem)] w-full h-full flex flex-col items-center text-center">
-            <motion.h1 class="will-change-transform text-7xl font-semibold tracking-tighter bg-linear-to-b from-blue-800 to-blue-950 bg-clip-text text-transparent"
-           style={{ translateY: y1 }}
+            
+            <h1 class="will-change-transform text-7xl font-semibold tracking-tighter bg-linear-to-b from-blue-800 to-blue-950 bg-clip-text text-transparent"
+            style:transform="translateY({$y1_1}px)"
             > 
             Welcome To The 
-            <motion.span 
+            <span 
             class="text-blue-950 tracking-wide absolute left-1/2 -translate-x-1/2 top-[60%] whitespace-nowrap"
-            style={{ translateY: y1_1 }}>
+            style:transform="translateY({$y1_1}px)"
+            >
                 Wheather Dashboard
-            </motion.span>
-            </motion.h1>
+            </span>
+            </h1>
+
         </div>
 
         <p 
