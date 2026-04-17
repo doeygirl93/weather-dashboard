@@ -33,15 +33,15 @@
 
 
         <div class="mt-[clamp(5rem,10vw,18rem)] w-full h-full flex flex-col items-center text-center">
-            <h1 class="text-7xl font-semibold tracking-tighter bg-linear-to-b from-blue-800 to-blue-950 bg-clip-text text-transparent"
-           style:transform="translateY({$y1}px)"
+            <motion.h1 class="will-change-transform text-7xl font-semibold tracking-tighter bg-linear-to-b from-blue-800 to-blue-950 bg-clip-text text-transparent"
+           style={{ translateY: y1 }}
             > 
                 Welcome To The Weather Dashboard
-            </h1>
+            </motion.h1>
         </div>
 
         <p 
-        class="m-10 text-center text-md tracking-wider text-shadow-lg text-shadow-black/30"
+        class="will-change-transform m-10 text-center text-md tracking-wider text-shadow-lg text-shadow-black/30"
         style:transform="translateY({$y2}px)"
         >
         Made wit 🥶 by Queen Von
@@ -52,21 +52,32 @@
          <div class="flex justify-end w-full">
         <motion.ul drag
         class="size-42 rounded-md bg-[url('rocket.png')] bg-cover bg-center"
-        animate={{ rotate: 360 }}
-        transition={{duration: 1}} />
+        animate={{  scale: 1, opacity: 1, x: 0, y: [0, -200, 0], rotate: 360  }}
+        transition={{
+            rotate: {duration: 50, repeat: Infinity, ease: "linear"},
+            y: { duration: 40, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+        }} />
         </div>
         <div class="flex justify-start w-full">
             <motion.ul drag
             class="size-42 rounded-md bg-[url('handsome_orphues.png')] bg-cover bg-center flex justify-end"
-            animate={{ rotate: 360 }}
-            transition={{duration: 1}} />
+            animate={{  scale: 1, opacity: 1, x: 0, y: [0, -10, 0], rotate: 30  }}
+            transition={{
+            rotate: {duration: 3, repeat: Infinity, ease: "linear"},
+            y: { duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+            }}
+             />
+
         </div>
         <div class="flex flex-col items-center w-full">
             <motion.ul drag
             class="size-42 rounded-md bg-[url('planet.png')] bg-cover bg-center flex justify-end"
             initial={{ scale: 0, opacity: 0, x:101 }}
-            animate={{  scale: 1, opacity: 1, x: 0  }}
-            transition={{duration: 1}} />
+            animate={{  scale: 1, opacity: 1, x: 0, y: [0, 15, 0], rotate: 360  }}
+            transition={{
+                rotate: {duration: 20, repeat: Infinity, ease: "linear"},
+                y: { duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+            }}/>
         </div>
     </section>
 
@@ -77,22 +88,40 @@
     -->
 
 
-    <section class="site-hero min-w-full min-h-[190dvh] bg-[#031523] text-white p-6 flex flex-col">
+    <section class=" min-w-full min-h-[190dvh] bg-[#031523] text-white p-6 flex flex-col">
         
-        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+
+
+
+        </div>
         <!-- Button -->
+
         <div class="text-center">
          <motion.button
-            class="button-hero text-2xl bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-2xs shadow-pink-600 font-semibold rounded-3xl p-[.5em] m-[2em] cursor-pointer hover:shadow-2xl"
+            class=" text-2xl bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-2xs shadow-pink-600 font-semibold rounded-3xl p-[.5em] m-[2em] cursor-pointer hover:shadow-2xl"
             initial={{ scale: 0, opacity: 0, y:100 }}
             whileInView={{ 
                 scale: 1,
                 opacity: 1,
                  y: 0,
-                transition: 2 
                 }}
-            whileHover={{ scale: 1.2}}
-            whileTap={{ scale: 0.8 }}
+            viewport={{ once: true }}
+
+            /* define animate so it can be like the bases pos*/
+
+            animate={{ scale: 1 }} 
+            whileHover={{ 
+                scale: 1.2,
+                transition: { duration: 0.3 } }}
+                
+            whileTap={{scale: 0.8,}}
+            transition={{
+                duration: .2,
+                scale: { type: "spring", stiffness: 400, damping: 10 },
+                default: { duration: 1 } 
+                }}
             >
             Click me
             </motion.button>
