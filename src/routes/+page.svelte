@@ -12,7 +12,8 @@
     // as scrolll goes from 0 to 1 opacity goes from 
     const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
     // as scrolll goes from 0 to 1 text moves from 0 to -200 xp
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -300]);
+    const y1_1 = useTransform(scrollYProgress, [0, 1], [0, -500]);
     const y2 = useTransform(scrollYProgress, [0, 1], [0, -125]);
     const y3 = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
@@ -27,16 +28,21 @@
 
 
 
-<main class="flex flex-col items-center justify-center bg-black">
+<main class="flex flex-col items-center justify-center bg-black overflow-hidden">
     <section class="min-w-full min-h-[90dvh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0)_80%,#031523_100%),url('spacex-VBNb52J8Trk-unsplash.jpg')] bg-cover bg-center"
     style:transform="translateY({$y3}px)">
 
 
-        <div class="mt-[clamp(5rem,10vw,18rem)] w-full h-full flex flex-col items-center text-center">
+        <div class="relative mt-[clamp(5rem,10vw,18rem)] w-full h-full flex flex-col items-center text-center">
             <motion.h1 class="will-change-transform text-7xl font-semibold tracking-tighter bg-linear-to-b from-blue-800 to-blue-950 bg-clip-text text-transparent"
            style={{ translateY: y1 }}
             > 
-                Welcome To The Weather Dashboard
+            Welcome To The 
+            <motion.span 
+            class="text-blue-950 tracking-wide absolute left-1/2 -translate-x-1/2 top-[60%] whitespace-nowrap"
+            style={{ translateY: y1_1 }}>
+                Wheather Dashboard
+            </motion.span>
             </motion.h1>
         </div>
 
@@ -88,12 +94,102 @@
     -->
 
 
-    <section class=" min-w-full min-h-[190dvh] bg-[#031523] text-white p-6 flex flex-col">
+    <section class=" min-w-full min-h-[190dvh] bg-[linear-gradient(to_top,rgba(0,0,0,0.05)_0%,rgba(0,0,.2,.5)_80%,#031523_100%),url('ocean.jpg')] text-white p-6 flex flex-col">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="grid grid-cols-3 gap-20">
+            <motion.div 
+            class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150 rounded-2xl shadow-xl min-h-40 my-10"
+            initial={{ opacity: 0, x:-100 }}
+            whileInView={{ 
+                opacity: 1,
+                 x: 0,
+                }}
+            viewport={{ once: true }}
+            animate={{ scale: 1 }} 
+            whileHover={{ 
+                scale: 0.8,
+                transition: { duration: 0.3 } }}
+                
+            whileTap={{scale: 1.125,}}
+            transition={{
+                duration: .2,
+                scale: { type: "spring", stiffness: 400, damping: 10 },
+                default: { duration: 1 } 
+                }}
+            >
 
+            </motion.div>
 
+            <div></div>
+            <div></div>
+            <motion.div 
+            class="col-span-2 border-4  border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 mb-10"
+            initial={{ opacity: 0, x:100 }}
+            whileInView={{ 
+                opacity: 1,
+                 x: 0,
+                }}
+            viewport={{ once: true }}
+            animate={{ scale: 1 }} 
+            whileHover={{ 
+                scale: 0.8,
+                transition: { duration: 0.3 } }}
+                
+            whileTap={{scale: 1.125,}}
+            transition={{
+                delay: 5,
+                duration: .3,
+                scale: { type: "spring", stiffness: 400, damping: 10 },
+                default: { duration: 1 } 
+                }}
+                >
+            </motion.div>
+            <motion.div
+             class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 my-10"
+             initial={{ opacity: 0, x:-100 }}
+            whileInView={{ 
+                opacity: 1,
+                 x: 0,
+                }}
+            viewport={{ once: true }}
+            animate={{ scale: 1 }} 
+            whileHover={{ 
+                scale: 0.8,
+                transition: { duration: 0.3 } }}
+                
+            whileTap={{scale: 1.125,}}
+            transition={{
+                duration: .2,
+                scale: { type: "spring", stiffness: 400, damping: 10 },
+                default: { duration: 1 } 
+                }}
+                >
 
+            </motion.div>
+
+            <div></div>
+            <div></div>
+            <motion.div 
+            class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 mb-10"
+            initial={{ opacity: 0, x:-100 }}
+            whileInView={{ 
+                opacity: 1,
+                 x: 0,
+                }}
+            viewport={{ once: true }}
+            animate={{ scale: 1 }} 
+            whileHover={{ 
+                scale: 0.8,
+                transition: { duration: 0.3 } }}
+                
+            whileTap={{scale: 1.125,}}
+            transition={{
+                duration: .2,
+                scale: { type: "spring", stiffness: 400, damping: 10 },
+                default: { duration: 1 } 
+                }}
+                >
+            </motion.div>
 
         </div>
         <!-- Button -->
