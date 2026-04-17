@@ -13,7 +13,7 @@
     const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
     // as scrolll goes from 0 to 1 text moves from 0 to -200 xp
     const y1 = useTransform(scrollYProgress, [0, 1], [0, -350]);
-    const y1_1 = useTransform(scrollYProgress, [0, 1], [0, -310]);
+    const y1_1 = useTransform(scrollYProgress, [0, 1], [0, -130]);
     const y2 = useTransform(scrollYProgress, [0, 1], [0, -225]);
     const y3 = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
@@ -36,7 +36,7 @@
         <div class="relative mt-[clamp(5rem,10vw,18rem)] w-full h-full flex flex-col items-center text-center">
             
             <h1 class="will-change-transform text-7xl font-semibold tracking-tighter bg-linear-to-b from-blue-800 to-blue-950 bg-clip-text text-transparent"
-            style:transform="translateY({$y1_1}px)"
+            style:transform="translateY({$y1}px)"
             > 
             Welcome To The 
             <span 
@@ -101,25 +101,32 @@
         
         <div class="grid grid-cols-3 gap-20">
             <motion.div 
-            class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150 rounded-2xl shadow-xl min-h-40 my-10"
-            initial={{ opacity: 0, x:-100 }}
-            whileInView={{ 
-                opacity: 1,
-                 x: 0,
-                }}
-            viewport={{ once: true }}
-            animate={{ scale: 1 }} 
-            whileHover={{ 
-                scale: 0.8,
-                transition: { duration: 0.3 } }}
-                
-            whileTap={{scale: 1.125,}}
-            transition={{
-                duration: .2,
-                scale: { type: "spring", stiffness: 400, damping: 10 },
-                default: { duration: 1 } 
-                }}
-            >
+                class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150 rounded-2xl shadow-xl min-h-40 my-10"
+                initial={{ opacity: 0, x:-100 }}
+                whileInView={{ 
+                    opacity: 1,
+                    x: 0,
+                    }}
+                viewport={{ once: true }}
+                animate={{ scale: 1 }} 
+                whileHover={{ 
+                    scale: 0.8,
+                    transition: { duration: 0.3 } }}
+                    
+                whileTap={{scale: 1.125,}}
+                transition={{
+                    duration: .2,
+                    scale: { type: "spring", stiffness: 400, damping: 10 },
+                    default: { duration: 1 } 
+                    }}
+                >
+                <div class="flex flex-col items-center w-full h-auto text-pink-50 p-4 md:p-8">
+                    <h2 class="text-2xl">Feature [01] Photo Of the Day</h2>
+                    <p class="text-md">Using the Nasa API we get the photo of the day to display the 
+                        <span class="italic">beutful</span> 
+                        photo that is chosen!
+                    </p>
+                </div>
 
             </motion.div>
 
@@ -146,60 +153,83 @@
                 default: { duration: 1 } 
                 }}
                 >
+
+                <div class="flex flex-col items-center w-full h-auto text-pink-50 p-4 md:p-8">
+                    <h2 class="text-2xl">Feature [02] Display of Time</h2>
+                    <p class="text-md"> If your a Bum who can't bother to check ur clock for the time we also display veryv eryyyy accurately what the time is!
+                    </p>
+                </div>
+
             </motion.div>
             <motion.div
-             class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 my-10"
-             initial={{ opacity: 0, x:-100 }}
-            whileInView={{ 
-                opacity: 1,
-                 x: 0,
-                }}
-            viewport={{ once: true }}
-            animate={{ scale: 1 }} 
-            whileHover={{ 
-                scale: 0.8,
-                transition: { duration: 0.3 } }}
-                
-            whileTap={{scale: 1.125,}}
-            transition={{
-                duration: .2,
-                scale: { type: "spring", stiffness: 400, damping: 10 },
-                default: { duration: 1 } 
-                }}
-                >
+                class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 my-10"
+                initial={{ opacity: 0, x:-100 }}
+                whileInView={{ 
+                    opacity: 1,
+                    x: 0,
+                    }}
+                viewport={{ once: true }}
+                animate={{ scale: 1 }} 
+                whileHover={{ 
+                    scale: 0.8,
+                    transition: { duration: 0.3 } }}
+                    
+                whileTap={{scale: 1.125,}}
+                transition={{
+                    duration: .2,
+                    scale: { type: "spring", stiffness: 400, damping: 10 },
+                    default: { duration: 1 } 
+                    }}
+                    >
+                <div class="flex flex-col items-center w-full h-auto text-pink-50 p-4 md:p-8">
+                    <h2 class="text-2xl">Feature [03] Local Wheather</h2>
+                    <p class="text-md"> 
+                        we feed your data and give it to claude code and we get to see where you local wheather is + we feed ur data to claude code for free credits🤭
+                    </p>
+                </div>   
 
             </motion.div>
 
             <div></div>
             <div></div>
             <motion.div 
-            class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 mb-10"
-            initial={{ opacity: 0, x:-100 }}
-            whileInView={{ 
-                opacity: 1,
-                 x: 0,
-                }}
-            viewport={{ once: true }}
-            animate={{ scale: 1 }} 
-            whileHover={{ 
-                scale: 0.8,
-                transition: { duration: 0.3 } }}
-                
-            whileTap={{scale: 1.125,}}
-            transition={{
-                duration: .2,
-                scale: { type: "spring", stiffness: 400, damping: 10 },
-                default: { duration: 1 } 
-                }}
-                >
+                class="col-span-2 border-4 border-white/10 bg-white/2.5 backdrop-blur-sm hover:backdrop-blur-md backdrop-saturate-150  rounded-2xl shadow-xl  min-h-40 mb-10"
+                initial={{ opacity: 0, x:-100 }}
+                whileInView={{ 
+                    opacity: 1,
+                    x: 0,
+                    }}
+                viewport={{ once: true }}
+                animate={{ scale: 1 }} 
+                whileHover={{ 
+                    scale: 0.8,
+                    transition: { duration: 0.3 } }}
+                    
+                whileTap={{scale: 1.125,}}
+                transition={{
+                    duration: .2,
+                    scale: { type: "spring", stiffness: 400, damping: 10 },
+                    default: { duration: 1 } 
+                    }}
+                    >
+
+                <div class="flex flex-col items-center w-full h-auto text-pink-50 p-4 md:p-8">
+                    <h2 class="text-2xl">Credits</h2>
+                    <p class="text-md"> 
+                        This website was made by ur gurl chika
+                    </p>
+                </div> 
             </motion.div>
 
         </div>
         <!-- Button -->
 
         <div class="text-center">
+
+        <a href="/dashboard">
          <motion.button
             class=" text-2xl bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-2xs shadow-pink-600 font-semibold rounded-3xl p-[.5em] m-[2em] cursor-pointer hover:shadow-2xl"
+            href="/about"
             initial={{ scale: 0, opacity: 0, y:100 }}
             whileInView={{ 
                 scale: 1,
@@ -222,8 +252,9 @@
                 default: { duration: 1 } 
                 }}
             >
-            Click me
+            Click me to go to dashboard
             </motion.button>
+        </a>
         </div>
         
     </section>
