@@ -24,13 +24,18 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div>
-	<h1 class="text-7xl text-center">TS the dashboard </h1>
+<main>
+    <div class="100vw 100vh bg-cover bg-center text-right flow-root ">
 
-	<p>
-		This made by chika finna be done sooon
-	</p>
-</div>
+        <h1 class="text-7xl text-center">TS the dashboard </h1>
+
+        <p>
+            This made by chika finna be done sooon
+        </p>
+
+
+        <!-- Ts this button-->
+    
 
         <a href="/">
          <motion.button
@@ -61,3 +66,5 @@
             Click me to go BACK
             </motion.button>
         </a>
+    </div>
+</main>

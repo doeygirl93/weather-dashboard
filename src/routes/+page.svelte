@@ -29,7 +29,7 @@
 
 
 <main class="flex flex-col items-center justify-center bg-black overflow-hidden">
-    <section class="min-w-full min-h-[90dvh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0)_80%,#031523_100%),url('spacex-VBNb52J8Trk-unsplash.jpg')] bg-cover bg-center"
+    <section id="site-start" class="min-w-full min-h-[90dvh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0)_80%,#031523_100%),url('spacex-VBNb52J8Trk-unsplash.jpg')] bg-cover bg-center"
     style:transform="translateY({$y3}px)">
 
 

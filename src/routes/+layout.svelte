@@ -6,7 +6,13 @@
 
 <div class="app">
 
-	<main>{@render children()}</main>
+	<main>
+		
+	<nav>
+		<a href="#site-start" class="absolute top-[-5] text-2xl text-black"> The start</a>
+	</nav>
+	{@render children()}
+	</main>
 
 	
 </div>
