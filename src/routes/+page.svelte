@@ -28,7 +28,19 @@
 
 
 
-<main class="flex flex-col items-center justify-center bg-black overflow-hidden">
+<main class="relative flex flex-col items-center justify-center bg-black overflow-hidden">
+     <a href="/about"
+     class="">
+        <button 
+            class="absolute z-100 top-0 right-0 mx-4 my-2 flex items-center gap-2 bg-black/20 hover:bg-slate-950/40 border-4 border-white/15 hover:border-emerald-white/50 backdrop-blur-md  px-4 py-2 rounded-4xl transition-all active:scale-95 hover:scale-110"
+        >
+            <span class="text-white/40 group-hover:text-white font-mono text-xs uppercase tracking-tighter">
+                About Section
+            </span>
+
+        </button>
+    </a>
+    
     <section id="site-start" class="min-w-full min-h-[90dvh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0)_80%,#031523_100%),url('spacex-VBNb52J8Trk-unsplash.jpg')] bg-cover bg-center"
     style:transform="translateY({$y3}px)">
 

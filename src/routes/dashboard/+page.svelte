@@ -3,7 +3,7 @@
     import { motion} from '@humanspeak/svelte-motion'
 
     import { onMount } from 'svelte';
-    import { fade, blur } from 'svelte/transition';
+    import { blur } from 'svelte/transition';
 
     let userName = $state("");
     let isAuth = $state(false);
@@ -40,7 +40,6 @@
         navigator.geolocation.getCurrentPosition(async (position) => {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
-
             try {
                 // get weather basrd on the corsd
                 
@@ -59,7 +58,7 @@
 
         async function getQuotes() {
             try{
-            const res = await fetch('https://corsproxy.io/?https://zenquotes.io/api/random')
+            const res = await fetch(`https://corsproxy.io/?https://zenquotes.io/api/random&t=${Date.now()}`)
             const data = await res.json();
 
             quote = {
@@ -82,6 +81,12 @@
             isAuth = true;
         }
     };
+
+    function logOut() {
+        localStorage.removeItem("user_id");
+        isAuth = false;
+        userName = "";
+    }
 
     // supposed to get the user's name if they have saved it
     onMount (() => {
@@ -112,7 +117,20 @@
 </svelte:head>
 
 {#if !isAuth }
-    <main class="h-screen w-full bg-[url('forest_cam.jpg')] bg-cover bg-center backdrop-blur-xl flex flex-col items-center justify-center p-4">
+    <main class="relative h-screen w-full bg-[url('forest_cam.jpg')] bg-cover bg-center backdrop-blur-xl flex flex-col items-center justify-center p-4">
+        <div class="absolute top-6 right-6 z-20">
+    <a href="/">
+        <button 
+            class="flex items-center gap-2 bg-black/20 hover:bg-red-950/20 hover:border-red-900/50 backdrop-blur-md border-4 border-white/15 px-4 py-2 rounded-4xl transition-all active:scale-95 hover:scale-110"
+        >
+            <span class="text-white/40 group-hover:text-white font-mono text-xs uppercase tracking-tighter">
+                Go back
+            </span>
+
+        </button>
+    </a>
+
+        </div>
         <div transition:blur={{ duration: 800}} class="">
 
             <!-- Ts the box-->
@@ -167,17 +185,28 @@
     class="h-screen w-full bg-cover bg-cover transition-all duration-1000 flex items-center justify-center relative overflow-hidden"
     style="background-image:url('{backgroundImage}')"
     >
+    <div class="absolute top-6 right-6 z-20">
+    <button 
+        onclick={logOut}
+        class="flex items-center gap-2 bg-black/20 hover:bg-red-950/20 hover:border-red-900/50 backdrop-blur-md border-4 border-white/15 px-4 py-2 rounded-4xl transition-all active:scale-95 hover:scale-110"
+    >
+        <span class="text-white/40 group-hover:text-white font-mono text-xs uppercase tracking-tighter">
+            Logout
+        </span>
+
+    </button>
+        </div>
 
         <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
 
         <section class="relative z-10 text-center">
-            <div class="clock-box bg-white/10 backdrop-blur-xl p-10 rounded-3xl border border-white/20">
+            <div class="clock-box bg-white/10 backdrop-blur-xl p-10 rounded-3xl border-4 border-white/20">
                 <h2 class="text-green-400 font-mono tracking-widest test-sm mb-2 uppercase">Welcome Back {userName}</h2>
                 <p class="text-8xl font-mono text-white font-bold drop-shadow-2xl">{timeString}</p>
                 <div class="flex justify-around items-center font-mono">
                     <div class="text-left">
-                        <p> External Temo </p>
-                        <p> {weather.temp} C</p>
+                        <p class="tracking-widest"> External Tempreture </p>
+                        <p class="tracking-tighter"> {weather.temp} F</p>
                     </div>
                     <!--
                     <div class="text-right">
@@ -190,31 +219,24 @@
 
             </div>
 
-        
-            <div in:fade={{ delay: 400}} class="">
-            <p class="text-shadow-[-1px_-1px_0_#000,1px_-1px_0_#000,-1px_1px_0_#000,1px_1px_0_#000] text-white italic"> Welcome back {userName}</p>
-
-
-            </div>
-
-            <footer class="absolute bottom-[-60] left-0 w-full flex flex-col items-center px-4">
+        </section>
+        <footer class="fixed bottom-0 left-0 w-full flex flex-col items-center px-4 pb-12 m-4">
                 <div class="w-2xl text-center cursor-pointer" >
-                    <p class="text-white/80 font-mono italic text-lg drop-shadow-md transition-all hover:text-white">
+                    <p class="text-white/85 font-mono italic text-lg drop-shadow-md transition-all hover:text-white">
                         "{quote.text}"
                     </p>
-                    <p class="text-white/80 font-mono italic text-lg drop-shadow-md transition-all hover:text-white">
+                    <p class="text-white/75 font-mono italic text-lg drop-shadow-md transition-all hover:text-white">
                         "{quote.author}"
                     </p>
 
                     <button onclick={getQuotes}>
-                        <span class="text-green-400/80 font-mono italic text-lg drop-shadow-md transition-all hover:scale-110 hover:text-green-400">
+                        <span class="text-green-400/80 font-mono italic text-lg drop-shadow-md transition-all hover:scale-130 hover:text-green-400">
                             Click For Further enlightenment
                         </span>
                     </button>
                 </div>
             
             </footer>
-        </section>
 
     </main>
 {/if}
