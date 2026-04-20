@@ -81,7 +81,7 @@
         </div>
         <div class="flex justify-start w-full">
             <motion.ul drag
-            class="size-42 rounded-md bg-[url('handsome_orphues.png')] bg-cover bg-center flex justify-end"
+            class="size-42 rounded-md bg-[url('/handsome_orphues.png')] bg-cover bg-center flex justify-end"
             animate={{  scale: 1, opacity: 1, x: 0, y: [0, -10, 0], rotate: 30  }}
             transition={{
             rotate: {duration: 3, repeat: Infinity, ease: "linear"},
