@@ -18,7 +18,7 @@
     let lon = $state(0);
     let weather = $state({ temp: "--", description: "Loading Data . . . "});
 
-    let quote = $state({text: "Loading sora AI + Chatgpt . ..  . . . ", author: "Ur gurl"});
+    let quote = $state({text: "Loading sora AI + Chatgpt . ..  . . . ", author: "Summing orpheos"});
 
     async function getNasaPhoto() {
         try {
@@ -58,8 +58,11 @@
 
         async function getQuotes() {
             try{
-            const res = await fetch(`https://corsproxy.io/?https://zenquotes.io/api/random&t=${Date.now()}`)
-            const data = await res.json();
+            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://zenquotes.io/api/random')}&t=${Date.now()}`);
+            
+            if (!res.ok) throw new Error("Quote Proxy failed");
+            const result = await res.json();
+            const data = JSON.parse(result.contents);
 
             quote = {
                 text: data[0].q,
@@ -67,6 +70,7 @@
             };
 
         } catch (e) {
+            console.error("Quote Error:", e);
             quote = { text: "You must be Git, because I can’t commit without you ", author: "r/ProgrammerHumor" };
         }
     };
