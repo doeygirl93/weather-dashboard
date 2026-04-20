@@ -7,7 +7,7 @@
 </svelte:head>
 
 
-<main class="relative min-h-screen w-full bg-[url('anime_cool_about_bg.jpg')] bg-cover bg-center flex flex-col items-center">
+<main class="relative min-h-screen w-full bg-[url('/anime_cool_about_bg.jpg')] bg-cover bg-center flex flex-col items-center">
 	<a href="/"
      class="">
         <button 

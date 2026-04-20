@@ -41,7 +41,7 @@
         </button>
     </a>
     
-    <section id="site-start" class="min-w-full min-h-[90dvh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0)_80%,#031523_100%),url('spacex-VBNb52J8Trk-unsplash.jpg')] bg-cover bg-center"
+    <section id="site-start" class="min-w-full min-h-[90dvh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0)_80%,#031523_100%),url('/spacex-VBNb52J8Trk-unsplash.jpg')] bg-cover bg-center"
     style:transform="translateY({$y3}px)">
 
 
@@ -72,7 +72,7 @@
         <!-- Stickers-->
          <div class="flex justify-end w-full">
         <motion.ul drag
-        class="size-42 rounded-md bg-[url('rocket.png')] bg-cover bg-center"
+        class="size-42 rounded-md bg-[url('/rocket.png')] bg-cover bg-center"
         animate={{  scale: 1, opacity: 1, x: 0, y: [0, -200, 0], rotate: 360  }}
         transition={{
             rotate: {duration: 50, repeat: Infinity, ease: "linear"},
@@ -92,7 +92,7 @@
         </div>
         <div class="flex flex-col items-center w-full">
             <motion.ul drag
-            class="size-42 rounded-md bg-[url('planet.png')] bg-cover bg-center flex justify-end"
+            class="size-42 rounded-md bg-[url('/planet.png')] bg-cover bg-center flex justify-end"
             initial={{ scale: 0, opacity: 0, x:101 }}
             animate={{  scale: 1, opacity: 1, x: 0, y: [0, 15, 0], rotate: 360  }}
             transition={{
@@ -109,7 +109,7 @@
     -->
 
 
-    <section class=" min-w-full min-h-[190dvh] bg-[linear-gradient(to_top,rgba(0,0,0,0.05)_0%,rgba(0,0,.2,.5)_80%,#031523_100%),url('ocean.jpg')] text-white p-6 flex flex-col">
+    <section class=" min-w-full min-h-[190dvh] bg-[linear-gradient(to_top,rgba(0,0,0,0.05)_0%,rgba(0,0,.2,.5)_80%,#031523_100%),url('/ocean.jpg')] text-white p-6 flex flex-col">
         
         <div class="grid grid-cols-3 gap-20">
             <motion.div 

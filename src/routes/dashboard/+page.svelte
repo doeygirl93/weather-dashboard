@@ -117,7 +117,7 @@
 </svelte:head>
 
 {#if !isAuth }
-    <main class="relative h-screen w-full bg-[url('forest_cam.jpg')] bg-cover bg-center backdrop-blur-xl flex flex-col items-center justify-center p-4">
+    <main class="relative h-screen w-full bg-[url('/forest_cam.jpg')] bg-cover bg-center backdrop-blur-xl flex flex-col items-center justify-center p-4">
         <div class="absolute top-6 right-6 z-20">
     <a href="/">
         <button 
